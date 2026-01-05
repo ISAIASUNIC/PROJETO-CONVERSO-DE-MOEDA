@@ -1,0 +1,282 @@
+Boa! 😄👏
+Que ótimo que agora deu certo.
+
+Sempre lembra dessas regrinhas que te salvaram aqui 👇
+
+querySelector("#id") → id
+
+querySelector(".classe") → class
+
+input.value → sempre string
+
+Use Number(), parseInt() ou parseFloat() para converter
+
+
+
+
+
+
+
+const convertButton = document.querySelector("#convertButton");
+const inputCurrency = document.querySelector("#input-currency");
+const resultado = document.querySelector("#resultado");
+
+const dolarHoje = 5.00;
+
+function convertValue() {
+  const valor = Number(inputCurrency.value);
+
+  if (isNaN(valor) || valor <= 0) {
+    alert("Digite um valor válido");
+    return;
+  }
+
+  const valorEmDolar = valor / dolarHoje;
+  resultado.innerText = `US$ ${valorEmDolar.toFixed(2)}`;
+}
+
+convertButton.addEventListener("click", convertValue);
+
+
+
+
+Se mudar classe ou id no HTML, precisa mudar aqui também.
+
+| JS                           | HTML             |
+| ---------------------------- | ---------------- |
+| `#convertButton`             | botão Converter  |
+| `#input-currency`            | input do valor   |
+| `.currency-value-to-convert` | valor em Real    |
+| `.currency-value`            | valor convertido |
+
+
+
+
+
+🧠 O que você aprendeu aqui
+
+Usar <select> com value
+
+Usar if para múltiplas moedas
+
+Trabalhar com duas conversões
+
+Lógica real de projeto 💪
+
+
+
+
+const convertButton = document.querySelector("#convertButton");
+const inputCurrency = document.querySelector("#input-currency");
+const currencySelect = document.querySelector("#currency-select");
+
+const valueToConvert = document.querySelector(".currency-value-to-convert");
+const convertedValue = document.querySelector(".currency-value");
+
+// Cotações fixas (exemplo)
+const dolarHoje = 5.00;
+const euroHoje = 5.50;
+
+function convertValue() {
+  const valorReal = Number(inputCurrency.value);
+
+  if (isNaN(valorReal) || valorReal <= 0) {
+    alert("Digite um valor válido");
+    return;
+  }
+
+  // Mostra valor em Real
+  valueToConvert.innerText = `R$ ${valorReal.toFixed(2)}`;
+
+  // Verifica moeda selecionada
+  if (currencySelect.value === "dolar") {
+    const valorEmDolar = valorReal / dolarHoje;
+    convertedValue.innerText = `US$ ${valorEmDolar.toFixed(2)}`;
+  }
+
+  if (currencySelect.value === "euro") {
+    const valorEmEuro = valorReal / euroHoje;
+    convertedValue.innerText = `€ ${valorEmEuro.toFixed(2)}`;
+  }
+}
+
+convertButton.addEventListener("click", convertValue);
+
+
+
+🧠 Dica importante (iniciante)
+
+Um elemento HTML nunca pode ficar dentro dele mesmo
+
+IDs devem ser únicos
+
+Se o JS “não funciona”, quase sempre é:
+
+ID errado
+
+HTML mal estruturado
+
+Script carregando antes do HTML
+
+
+
+
+
+
+REGRA PRINCIPAL
+@media (max-width: 768px) {
+
+
+👉 Tudo que estiver aqui dentro só funciona quando a tela tiver até 768px
+(ou seja: celulares e tablets).
+
+📦 BODY
+body {
+  padding: 16px;
+}
+
+
+🔹 Cria espaço nas bordas no celular
+🔹 Evita conteúdo colado na tela
+
+📦 MAIN
+main {
+  width: 100%;
+  padding: 20px;
+}
+
+
+🔹 Ocupa toda a largura do celular
+🔹 Dá respiro interno
+
+🖼️ LOGO
+.logo {
+  width: 180px;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+
+🔹 Diminui o tamanho da logo
+🔹 Centraliza
+🔹 Cria espaço embaixo
+
+🏷️ LABEL
+label {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+
+🔹 Faz os textos ficarem um embaixo do outro
+🔹 gap: espaço entre texto e input
+🔹 Fonte menor no mobile
+
+🔽 SELECT e INPUT
+select,
+input {
+  width: 100%;
+  height: 44px;
+  font-size: 16px;
+}
+
+
+🔹 Ocupam toda a largura
+🔹 Altura confortável para o dedo
+🔹 Fonte maior (evita zoom automático no iOS)
+
+🔘 BOTÃO
+button {
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+
+🔹 Botão grande e fácil de clicar
+🔹 Ocupa largura total
+
+📐 SECTION
+section {
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+
+🔹 Em vez de lado a lado, fica em coluna
+🔹 Espaçamento entre caixas
+
+➡️ SETA
+.Arrow-img {
+  transform: rotate(90deg);
+  width: 24px;
+  margin: 10px auto;
+}
+
+
+🔹 Gira a seta para combinar com layout vertical
+🔹 Centraliza
+
+💱 CURRENCY-BOX
+.currency-box {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+
+🔹 Caixas ocupam toda a largura
+🔹 Conteúdo centralizado
+
+🏳️ BANDEIRA
+.currency-box img {
+  width: 40px;
+}
+
+
+🔹 Bandeiras menores no celular
+
+💬 NOME DA MOEDA
+.currency {
+  font-size: 14px;
+}
+
+
+🔹 Texto menor para caber melhor
+
+💰 VALORES
+.currency-value,
+.currency-value-to-convert {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+🔹 Valor em destaque
+🔹 Fácil de ler no celular
+
+🧠 RESUMO FINAL
+
+Desktop → layout normal
+
+Mobile → layout empilhado, confortável
+
+Nenhuma regra quebra o desktop
+
+CSS profissional e organizado 💪
+
+
+
+
+
+
+
+
+
+
+

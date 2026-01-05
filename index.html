@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./sytelly.css">
+  <title>Dv club - conversor de moedas</title>
+
+  <!-- SCRIPT CORRETO -->
+  <script src="./scripts.js" defer></script>
+</head>
+
+<body>
+
+  <img class="logo" src="./Asset/gifit.gif" alt="logo dev club conversor de moedas">
+
+  <main>
+
+    <label>
+      <select>
+        <option>R$ Real Brasileiro</option>
+      </select>
+    </label>
+
+    <label>
+      Converter <b>para</b>
+      <select id="currency-select">
+        <option value="dolar">US$ Dólar Americano</option>
+        <option value="euro">€ Euro</option>
+        <option value="libra">Libra</option>
+      </select>
+    </label>
+
+    <label>
+      Valor
+      <input id="input-currency" type="number" placeholder="Digite o valor">
+    </label>
+
+    <button id="convertButton">Converter</button>
+
+    <section>
+      <div class="currency-box">
+        <img src="./Asset/logo brasil.png">
+        <p class="currency">Real</p>
+        <p class="currency-value-to-convert">R$ 0,00</p>
+      </div>
+
+      <img class="Arrow-img" src="./Asset/setinha.png">
+
+      <div class="currency-box">
+        <img id="currency-img" src="./Asset/logo usa.png">
+        <p id="currency-name" class="currency">Dólar Americano</p>
+        <p class="currency-value">US$ 0.00</p>
+      </div>
+    </section>
+
+  </main>
+
+</body>
+
+</html>
